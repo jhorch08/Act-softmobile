@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, App } from 'ionic-angular';
+import { NavController, App, FabContainer } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 @Component({
@@ -20,4 +20,10 @@ export class HomePage {
     this.navCtrl.setRoot(LoginPage);
     this.navCtrl.popToRoot();*/
   }
+
+  share(socialNet: string, fab: FabContainer) {
+    fab.close();
+    console.log("Sharing in", socialNet);
+  }
+
 }
