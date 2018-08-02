@@ -18,10 +18,10 @@ export class LoginPage {
   @ViewChild('email') email: any;
   private username: string;
   private password: string;
-  private error: string;
+  public error: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+    
   }
 
   ionViewDidLoad() {
@@ -32,7 +32,15 @@ export class LoginPage {
   }
 
   login(): void {
-    this.navCtrl.setRoot(TabsPage);
+    this.error = ""
+    if (this.username == "admin" && this.password == "admin")
+    {
+      this.navCtrl.setRoot(TabsPage);
+    }
+    else
+    {
+      this.error = "usuario o contraseña incorrectos";
+    }
     /*this.oauthService.createAndSaveNonce().then(nonce => {
       const authClient = new OktaAuth({
         clientId: this.oauthService.clientId,

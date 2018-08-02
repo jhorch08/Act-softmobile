@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 @Component({
@@ -8,12 +8,14 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    public app: App) {
 
   }
 
   logout() {
-    this.navCtrl.setRoot(LoginPage);
+    var nav = this.app.getRootNavs()[0];
+    nav.setRoot(LoginPage);
     /*this.oauthService.logOut();
     this.navCtrl.setRoot(LoginPage);
     this.navCtrl.popToRoot();*/
